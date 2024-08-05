@@ -40,7 +40,8 @@ namespace filtro_c_sharp.Models
 
         protected int CalculateAgeInMonths()
         {
-            return DateTime.Now.Month - Birthdate.Month;
+            // Años * 12 para volverlo meses, + meses actuales
+            return (DateTime.Now.Year - Birthdate.Year) * 12 + (DateTime.Now.Month - Birthdate.Month);
         }
     }
 }
