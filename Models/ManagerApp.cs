@@ -91,7 +91,7 @@ namespace filtro_c_sharp.Models
             var temperament = Console.ReadLine().Trim().ToLower();
             while (temperament != "timido" && temperament != "normal" && temperament != "agresivo")
             {
-                Console.WriteLine($"Escribe timido, normal o agresivo para poder continuar");
+                Console.WriteLine($"Escribe 'timido', 'normal' o 'agresivo' para poder continuar");
                 temperament = Console.ReadLine().Trim().ToLower();
             }
 
@@ -126,5 +126,11 @@ namespace filtro_c_sharp.Models
 
             return birthdate;
         }
+        public static void PauseMenu()
+        {
+            Console.WriteLine("Presiona una tecla para continuar");
+            Console.ReadLine();
+        }
     }
+
 }
