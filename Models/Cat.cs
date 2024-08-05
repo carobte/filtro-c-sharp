@@ -82,5 +82,9 @@ namespace filtro_c_sharp.Models
         {
             return Name;
         }
+        public void SetWeight(double weight)
+        {
+            WeightInKg = weight;
+        }
     }
 }
