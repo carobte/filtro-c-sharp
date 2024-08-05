@@ -8,15 +8,13 @@ namespace filtro_c_sharp.Models
 {
     public class ManagerApp
     {
-        private static int Id = 0; // Inicializo el Id para las mascotas
-        
         // Métodos del diagrama UML
         public static Dog CreateDog() // Método para crear un perro
         {
             Console.WriteLine("Ingresa el nombre del perro");
             var name = Console.ReadLine();
 
-           var birthdate = GetBirthdate();
+            var birthdate = GetBirthdate();
 
             Console.WriteLine($"Ingresa la raza de {name}");
             var breed = Console.ReadLine();
@@ -40,7 +38,7 @@ namespace filtro_c_sharp.Models
 
             var coatType = GetCoatOrFlurType();
 
-            return new Dog(GeneratorId(), name, birthdate, breed, color, weight, breedingStatus, temperament, microchipNumber, barkVolume, coatType);
+            return new Dog(name, birthdate, breed, color, weight, breedingStatus, temperament, microchipNumber, barkVolume, coatType);
         }
 
         public static Cat CreateCat() // Método para crear un gato
@@ -64,27 +62,25 @@ namespace filtro_c_sharp.Models
 
             var flurLength = GetCoatOrFlurType();
 
-            return new Cat(GeneratorId(), name, birthdate, breed, color, weight, breedingStatus, flurLength);
+            return new Cat(name, birthdate, breed, color, weight, breedingStatus, flurLength);
         }
 
-        public static void  ShowHeader(string header){
+        public static void ShowHeader(string header)
+        {
             Console.WriteLine($"{header}");
         }
 
-        public static void  ShowFooter(string footer){
+        public static void ShowFooter(string footer)
+        {
             Console.WriteLine($"{footer}");
         }
 
-        public static void  ShowSeparator(){
+        public static void ShowSeparator()
+        {
             Console.WriteLine("__________________________________________________");
         }
 
         // Métodos no especificadas en el diagrama
- 
-        public static int GeneratorId() // generador ids para las mascotas
-        {
-            return Id += 1;
-        }
 
         public static string GetTemperament() // Validación temperamento del perro
 

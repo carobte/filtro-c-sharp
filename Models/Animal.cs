@@ -9,7 +9,7 @@ namespace filtro_c_sharp.Models
     public abstract class Animal
     {
         // Atributos de la clase padre animal 
-        protected int Id { get; set; }
+        protected Guid Id { get; set; }
         protected string Name { get; set; }
         protected DateOnly Birthdate { get; set; }
         protected string Breed { get; set; }
@@ -17,9 +17,9 @@ namespace filtro_c_sharp.Models
         protected double WeightInKg { get; set; }
 
         // Constructor de la clase
-        public Animal(int id, string name, DateOnly birthdate, string breed, string color, double weightInKg)
+        public Animal(string name, DateOnly birthdate, string breed, string color, double weightInKg)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Name = name;
             Birthdate = birthdate;
             Breed = breed;

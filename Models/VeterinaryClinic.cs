@@ -9,8 +9,8 @@ namespace filtro_c_sharp.Models
     {
         public string Name { get; set; }
         public string Address { get; set; }
-        public List<Dog> Dogs { get; set; } = new List<Dog>(); // Lista de perros
-        public List<Cat> Cats { get; set; } = new List<Cat>(); // Lista de gatos
+        public static List<Dog> Dogs { get; set; } = new List<Dog>(); // Lista de perros
+        public static List<Cat> Cats { get; set; } = new List<Cat>(); // Lista de gatos
 
         // Constructor sin parametros
         public VeterinaryClinic() { }
@@ -47,7 +47,7 @@ namespace filtro_c_sharp.Models
 
         }
 
-        public void DeleteDog(int id) // Eliminar perro según id
+        public void DeleteDog(string id) // Eliminar perro según id
         {
             var founded = Dogs.Find(dog => dog.GetId() == id);
             if (founded != null)
@@ -66,7 +66,7 @@ namespace filtro_c_sharp.Models
             }
         }
 
-        public void DeleteCat(int id) // Eliminar gato según id
+        public void DeleteCat(string id) // Eliminar gato según id
         {
             var founded = Cats.Find(cat => cat.GetId() == id);
             if (founded != null)
@@ -131,7 +131,7 @@ namespace filtro_c_sharp.Models
             }
         }
 
-        public void ShowPatient(int idPatient) // Mostrar info de un paciente específico con su id
+        public void ShowPatient(string idPatient) // Mostrar info de un paciente específico con su id
         {
             ManagerApp.ShowHeader("Buscando...");
             var foundedDog = Dogs.Find(dog => dog.GetId() == idPatient);
@@ -151,6 +151,15 @@ namespace filtro_c_sharp.Models
                     Console.WriteLine("El paciente no fue encontrado. Intenta de nuevo");
                 }
             }
+        }
+
+        public void DataEG()
+        {
+            Dogs.Add(new Dog( "Milu", new DateOnly(2023, 04, 21), "border collie", "negro", 13.5, false, "normal", "123456", "normal", "pelo largo"));
+            Dogs.Add(new Dog( "Orión", new DateOnly(2013, 10, 18), "criollo", "beige", 13.5, true, "timido", "987654", "normal", "pelo mediano"));
+
+            Cats.Add(new Cat( "Molly", new DateOnly(2000, 04, 21), "persa", "naranja", 7.5, false, "pelo mediano"));
+            Cats.Add(new Cat( "Salem", new DateOnly(2001, 04, 21), "esfinge", "rosado", 10, false, "sin pelo"));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace filtro_c_sharp.Models
 
         // Constructor con los respectivos atributos desde clase padre Animal
 
-        public Dog(int id, string name, DateOnly birthdate, string breed, string color, double weightInKg, bool breedingStatus, string temperament, string microchipNumber, string barkVolume, string coatType) : base(id, name, birthdate, breed, color, weightInKg)
+        public Dog( string name, DateOnly birthdate, string breed, string color, double weightInKg, bool breedingStatus, string temperament, string microchipNumber, string barkVolume, string coatType) : base(name, birthdate, breed, color, weightInKg)
         {
             BreedingStatus = breedingStatus;
             Temperament = temperament;
@@ -38,6 +38,7 @@ namespace filtro_c_sharp.Models
                 status = "No";
             }
 
+            Console.WriteLine($"Id: {Id}");
             Console.WriteLine($"Nombre del perro: {Name}");
             Console.WriteLine($"Fecha de nacimiento: {Birthdate}");
             Console.WriteLine($"Edad: {CalculateAgeInMonths()} meses");
@@ -77,9 +78,9 @@ namespace filtro_c_sharp.Models
 
         // Métodos no especificadas en el diagrama
 
-        public int GetId()
+        public string GetId()
         {
-            return Id;
+            return Id.ToString();
         }
 
         public string GetName()

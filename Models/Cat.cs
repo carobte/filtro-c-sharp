@@ -12,7 +12,7 @@ namespace filtro_c_sharp.Models
         public string FurLength { get; set; }
 
         // Constructor con los respectivos atributos desde clase padre Animal
-        public Cat(int id, string name, DateOnly birthdate, string breed, string color, double weightInKg, bool breedingStatus, string furLength) : base(id, name, birthdate, breed, color, weightInKg)
+        public Cat(string name, DateOnly birthdate, string breed, string color, double weightInKg, bool breedingStatus, string furLength) : base(name, birthdate, breed, color, weightInKg)
         {
             BreedingStatus = breedingStatus;
             FurLength = furLength;
@@ -22,13 +22,23 @@ namespace filtro_c_sharp.Models
 
         public override void ShowInformation()
         {
+            var status = "";
+            if (BreedingStatus == true)
+            {
+                status = "Sí";
+            }
+            else
+            {
+                status = "No";
+            }
+            Console.WriteLine($"Id: {Id}");
             Console.WriteLine($"Nombre del gato: {Name}");
             Console.WriteLine($"Fecha de nacimiento: {Birthdate}");
             Console.WriteLine($"Edad: {CalculateAgeInMonths()} meses");
             Console.WriteLine($"Raza: {Breed}");
             Console.WriteLine($"Color: {Color}");
             Console.WriteLine($"Peso: {WeightInKg} kg");
-            Console.WriteLine($"Castrado: {BreedingStatus}");
+            Console.WriteLine($"Castrado: {status}");
             Console.WriteLine($"Pelaje: {FurLength}");
         }
 
@@ -48,18 +58,21 @@ namespace filtro_c_sharp.Models
 
         public void Hairdress()
         {
-            if(FurLength != "sin pelo" && FurLength != "pelo corto"){
+            if (FurLength != "sin pelo" && FurLength != "pelo corto")
+            {
                 Console.WriteLine($"{Name} ha sido motilado");
-            } else {
+            }
+            else
+            {
                 Console.WriteLine($"{Name} no puede ser motilado");
             }
         }
 
         // Métodos no especificadas en el diagrama
 
-        public int GetId()
+        public string GetId()
         {
-            return Id;
+            return Id.ToString();
         }
 
         public string GetName()
