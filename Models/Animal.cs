@@ -33,7 +33,9 @@ namespace filtro_c_sharp.Models
 
         protected void BasicReview()
         {
-            Console.WriteLine("La mascota se encuentra estable");
+            Console.WriteLine("Escribe el estado con el que ingresa la mascota");
+            var status = Console.ReadLine();
+            Console.WriteLine($"Descripción del ingreso: {status}");
         }
 
         protected int CalculateAgeInMonths()
