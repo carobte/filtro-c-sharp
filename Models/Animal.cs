@@ -31,17 +31,21 @@ namespace filtro_c_sharp.Models
         public abstract void ShowInformation();
 
 
-        protected void BasicReview()
+        protected string BasicReview()
         {
             Console.WriteLine("Escribe el estado con el que ingresa la mascota");
-            var status = Console.ReadLine();
-            Console.WriteLine($"Descripción del ingreso: {status}");
+            return Console.ReadLine();
         }
 
         protected int CalculateAgeInMonths()
         {
             // Años * 12 para volverlo meses, + meses actuales
             return (DateTime.Now.Year - Birthdate.Year) * 12 + (DateTime.Now.Month - Birthdate.Month);
+        }
+
+        public void ShowBasicReview()
+        {
+            Console.WriteLine($"Descripción del ingreso: {BasicReview()}");
         }
     }
 }

@@ -90,7 +90,7 @@ namespace filtro_c_sharp.Models
             ManagerApp.ShowSeparator();
             ManagerApp.ShowHeader("Pacientes registrados:");
             ManagerApp.ShowHeader("Perros: ");
-            
+
             ManagerApp.ShowSeparator();
 
             foreach (var dog in Dogs)
@@ -130,7 +130,9 @@ namespace filtro_c_sharp.Models
                 {
                     cat.ShowInformation();
                 }
-            } else {
+            }
+            else
+            {
                 Console.WriteLine("Error. Intenta nuevamente.");
             }
         }
@@ -159,11 +161,27 @@ namespace filtro_c_sharp.Models
 
         public void DataEG()
         {
-            Dogs.Add(new Dog( "Milu", new DateOnly(2023, 04, 21), "border collie", "negro", 13.5, false, "normal", "123456", "normal", "pelo largo"));
-            Dogs.Add(new Dog( "Orión", new DateOnly(2013, 10, 18), "criollo", "beige", 13.5, true, "timido", "987654", "normal", "pelo mediano"));
+            Dogs.Add(new Dog("Milu", new DateOnly(2023, 04, 21), "border collie", "negro", 13.5, false, "normal", "123456", "normal", "pelo largo"));
+            var dog = new Dog("Orión", new DateOnly(2013, 10, 18), "criollo", "beige", 13.5, true, "timido", "987654", "normal", "pelo mediano");
 
-            Cats.Add(new Cat( "Molly", new DateOnly(2000, 04, 21), "persa", "naranja", 7.5, false, "pelo mediano"));
-            Cats.Add(new Cat( "Salem", new DateOnly(2001, 04, 21), "esfinge", "rosado", 10, false, "sin pelo"));
+            Dogs.Add(dog);
+
+            // Probando métodos de Dog
+
+            // dog.Hairdress();
+            // dog.CastrateAnimal();
+            // dog.ShowBasicReview();
+
+
+            Cats.Add(new Cat("Molly", new DateOnly(2000, 04, 21), "persa", "naranja", 7.5, false, "pelo mediano"));
+            var cat = new Cat("Salem", new DateOnly(2001, 04, 21), "esfinge", "rosado", 10, false, "sin pelo");
+            Cats.Add(cat);
+
+            // Probando métodos de Cat
+
+            // cat.Hairdress();
+            // cat.CastrateAnimal();
+            // cat.ShowBasicReview();
         }
     }
 }
