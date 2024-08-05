@@ -8,14 +8,17 @@ namespace filtro_c_sharp.Models
 {
     public abstract class Animal
     {
-        protected int Id {get;set;}
-        protected string Name {get;set;}
-        protected DateOnly Birthdate {get;set;}
-        protected string Breed {get;set;}
-        protected string Color {get;set;}
-        protected double WeightInKg {get;set;}
+        // Atributos de la clase padre animal 
+        protected int Id { get; set; }
+        protected string Name { get; set; }
+        protected DateOnly Birthdate { get; set; }
+        protected string Breed { get; set; }
+        protected string Color { get; set; }
+        protected double WeightInKg { get; set; }
 
-        public Animal(int id, string name, DateOnly birthdate, string breed, string color, double weightInKg){
+        // Constructor de la clase
+        public Animal(int id, string name, DateOnly birthdate, string breed, string color, double weightInKg)
+        {
             Id = id;
             Name = name;
             Birthdate = birthdate;
@@ -24,13 +27,17 @@ namespace filtro_c_sharp.Models
             WeightInKg = weightInKg;
         }
 
+        // Funciones descritas en el UML:
         public abstract void ShowInformation();
-        
-        protected void BasicReview(){
+
+
+        protected void BasicReview()
+        {
 
         }
 
-        protected int CalculateAgeInMonths(){
+        protected int CalculateAgeInMonths()
+        {
             return DateTime.Now.Month - Birthdate.Month;
         }
     }
