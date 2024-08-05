@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
 
 namespace filtro_c_sharp.Models
 {
@@ -37,14 +38,117 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"El gato {newCat.GetName()} ha sido registrado exitosamente");
         }
 
-        public void UpdateDog(Dog dog) // Actualizar perro
+        public void UpdateDog(string id) // Actualizar perro
         {
+            var dog = Dogs.Find(dog => dog.GetId() == id);
+            if (dog != null)
+
+            {
+                var flag = true;
+                while (true)
+                {
+                    Console.WriteLine($"¿Qué información deseas editar de {dog.GetName()}?");
+                    Console.WriteLine($"0. Salir");
+                    Console.WriteLine($"1. Peso");
+                    Console.WriteLine($"2. Castrado o no");
+                    Console.WriteLine($"3. Temperamento");
+                    Console.WriteLine($"4. Pelaje");
+
+                    var option = Console.ReadLine();
+
+                    switch (option)
+                    {
+                        case "0":
+                            flag = false;
+                            Console.WriteLine("Volviendo al menú principal...");
+                            break;
+                        case "1":
+                            Console.WriteLine("Ingresa el peso actualizado: ");
+                            dog.SetWeight(Convert.ToDouble(Console.ReadLine()));
+                            Console.WriteLine("El peso fue actualizado");
+                            ManagerApp.PauseMenu();
+                            break;
+                        case "2":
+                            Console.WriteLine($"¿{dog.GetName()} se encuentra castrado? Ingresa 1 para sí, 0 para no");
+                            dog.BreedingStatus = Convert.ToBoolean(Convert.ToInt16(Console.ReadLine()));
+                            Console.WriteLine("Su estado de castración fue actualizado");
+                            ManagerApp.PauseMenu();
+                            break;
+                        case "3":
+                            dog.Temperament = ManagerApp.GetTemperament();
+                            Console.WriteLine("Su temperamento fue editado satisfactoriamente");
+                            ManagerApp.PauseMenu();
+                            break;
+                        case "4":
+                            dog.CoatType = ManagerApp.GetCoatOrFlurType();
+                            Console.WriteLine("Su pelaje fue editado satisfactoriamente");
+                            ManagerApp.PauseMenu();
+                            break;
+                        default:
+                            Console.WriteLine("Por favor ingresa una opción válida.");
+                            break;
+                    }
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("No se encontró ningún perro con ese id. Intenta nuevamente");
+            }
 
         }
 
-        public void UpdateCat(Cat cat) // Actualizar gato
+        public void UpdateCat(string id) // Actualizar gato
         {
+            var cat = Cats.Find(cat => cat.GetId() == id);
+            if (cat != null)
 
+            {
+                var flag = true;
+                while (true)
+                {
+                    Console.WriteLine($"¿Qué información deseas editar de {cat.GetName()}?");
+                    Console.WriteLine($"0. Salir");
+                    Console.WriteLine($"1. Peso");
+                    Console.WriteLine($"2. Castrado o no");
+                    Console.WriteLine($"3. Pelaje");
+
+                    var option = Console.ReadLine();
+
+                    switch (option)
+                    {
+                        case "0":
+                            flag = false;
+                            Console.WriteLine("Volviendo al menú principal...");
+                            break;
+                        case "1":
+                            Console.WriteLine("Ingresa el peso actualizado: ");
+                            cat.SetWeight(Convert.ToDouble(Console.ReadLine()));
+                            Console.WriteLine("El peso fue actualizado");
+                            ManagerApp.PauseMenu();
+                            break;
+                        case "2":
+                            Console.WriteLine($"¿{cat.GetName()} se encuentra castrado? Ingresa 1 para sí, 0 para no");
+                            cat.BreedingStatus = Convert.ToBoolean(Convert.ToInt16(Console.ReadLine()));
+                            Console.WriteLine("Su estado de castración fue actualizado");
+                            ManagerApp.PauseMenu();
+                            break;
+                        case "3":
+                            cat.FurLength = ManagerApp.GetCoatOrFlurType();
+                            Console.WriteLine("Su pelaje fue editado satisfactoriamente");
+                            ManagerApp.PauseMenu();
+                            break;
+                        default:
+                            Console.WriteLine("Por favor ingresa una opción válida.");
+                            break;
+                    }
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("No se encontró ningún gato con ese id. Intenta nuevamente");
+            }
         }
 
         public void DeleteDog(string id) // Eliminar perro según id
