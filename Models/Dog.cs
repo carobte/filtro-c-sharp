@@ -41,7 +41,7 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"Coat Type: {CoatType}");
         }
 
-       // Funciones descritas desde el UML
+        // Funciones descritas desde el UML
 
         public void CastrateAnimal()
         {
@@ -53,6 +53,15 @@ namespace filtro_c_sharp.Models
             Console.WriteLine("");
         }
 
+        public int GetId()
+        {
+            return Id;
+        }
+
+        public string GetName()
+        {
+            return Name;
+        }
 
     }
 }

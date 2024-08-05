@@ -42,5 +42,15 @@ namespace filtro_c_sharp.Models
         {
             Console.WriteLine("");
         }
+
+        public int GetId()
+        {
+            return Id;
+        }
+
+        public string GetName()
+        {
+            return Name;
+        }
     }
 }
