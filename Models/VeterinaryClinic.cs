@@ -45,7 +45,7 @@ namespace filtro_c_sharp.Models
 
             {
                 var flag = true;
-                while (true)
+                while (flag)
                 {
                     Console.WriteLine($"¿Qué información deseas editar de {dog.GetName()}?");
                     Console.WriteLine($"0. Salir");
@@ -105,7 +105,7 @@ namespace filtro_c_sharp.Models
 
             {
                 var flag = true;
-                while (true)
+                while (flag)
                 {
                     Console.WriteLine($"¿Qué información deseas editar de {cat.GetName()}?");
                     Console.WriteLine($"0. Salir");
@@ -219,6 +219,7 @@ namespace filtro_c_sharp.Models
         {
             if (type.ToLower() == "perro")
             {
+                ManagerApp.ShowSeparator();
                 ManagerApp.ShowHeader("Perros: ");
 
                 foreach (var dog in Dogs)
@@ -228,6 +229,7 @@ namespace filtro_c_sharp.Models
             }
             else if (type.ToLower() == "gato")
             {
+                ManagerApp.ShowSeparator();
                 ManagerApp.ShowHeader("Gatos: ");
 
                 foreach (var cat in Cats)
