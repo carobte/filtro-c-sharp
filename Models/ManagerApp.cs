@@ -77,7 +77,9 @@ namespace filtro_c_sharp.Models
 
         public static void ShowSeparator()
         {
+            Console.WriteLine("");
             Console.WriteLine("__________________________________________________");
+            Console.WriteLine("");
         }
 
         // Métodos no especificadas en el diagrama

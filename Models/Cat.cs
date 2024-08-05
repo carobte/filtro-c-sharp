@@ -31,6 +31,8 @@ namespace filtro_c_sharp.Models
             {
                 status = "No";
             }
+
+            ManagerApp.ShowSeparator();
             Console.WriteLine($"Id: {Id}");
             Console.WriteLine($"Nombre del gato: {Name}");
             Console.WriteLine($"Fecha de nacimiento: {Birthdate}");
@@ -40,6 +42,7 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"Peso: {WeightInKg} kg");
             Console.WriteLine($"Castrado: {status}");
             Console.WriteLine($"Pelaje: {FurLength}");
+            ManagerApp.ShowSeparator();
         }
 
         // Métodos descritas desde el UML

@@ -15,7 +15,7 @@ namespace filtro_c_sharp.Models
 
         // Constructor con los respectivos atributos desde clase padre Animal
 
-        public Dog( string name, DateOnly birthdate, string breed, string color, double weightInKg, bool breedingStatus, string temperament, string microchipNumber, string barkVolume, string coatType) : base(name, birthdate, breed, color, weightInKg)
+        public Dog(string name, DateOnly birthdate, string breed, string color, double weightInKg, bool breedingStatus, string temperament, string microchipNumber, string barkVolume, string coatType) : base(name, birthdate, breed, color, weightInKg)
         {
             BreedingStatus = breedingStatus;
             Temperament = temperament;
@@ -38,6 +38,7 @@ namespace filtro_c_sharp.Models
                 status = "No";
             }
 
+            ManagerApp.ShowSeparator();
             Console.WriteLine($"Id: {Id}");
             Console.WriteLine($"Nombre del perro: {Name}");
             Console.WriteLine($"Fecha de nacimiento: {Birthdate}");
@@ -50,6 +51,7 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"Número de microchip: {MicrochipNumber}");
             Console.WriteLine($"Volumen de ladrido: {BarkVolume}");
             Console.WriteLine($"Pelaje: {CoatType}");
+            ManagerApp.ShowSeparator();
         }
 
         // Métodos descritas desde el UML
@@ -69,9 +71,12 @@ namespace filtro_c_sharp.Models
 
         public void Hairdress()
         {
-            if(CoatType != "sin pelo" && CoatType != "pelo corto"){
+            if (CoatType != "sin pelo" && CoatType != "pelo corto")
+            {
                 Console.WriteLine($"{Name} ha sido motilado");
-            } else {
+            }
+            else
+            {
                 Console.WriteLine($"{Name} no puede ser motilado");
             }
         }

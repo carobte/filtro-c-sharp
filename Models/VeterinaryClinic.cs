@@ -90,6 +90,8 @@ namespace filtro_c_sharp.Models
             ManagerApp.ShowSeparator();
             ManagerApp.ShowHeader("Pacientes registrados:");
             ManagerApp.ShowHeader("Perros: ");
+            
+            ManagerApp.ShowSeparator();
 
             foreach (var dog in Dogs)
             {
