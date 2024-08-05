@@ -128,6 +128,8 @@ namespace filtro_c_sharp.Models
                 {
                     cat.ShowInformation();
                 }
+            } else {
+                Console.WriteLine("Error. Intenta nuevamente.");
             }
         }
 
