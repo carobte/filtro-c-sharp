@@ -101,14 +101,14 @@ namespace filtro_c_sharp.Models
         public static string GetCoatOrFlurType() // Validación pelaje de la mascota
         {
             Console.WriteLine($"Ingresa el pelaje de la mascota");
-            var coatType = Console.ReadLine().Trim().ToLower();
+            var coatOrFlurType = Console.ReadLine().Trim().ToLower();
 
-            while (coatType != "sin pelo" && coatType != "pelo corto" && coatType != "pelo mediano" && coatType != "pelo largo")
+            while (coatOrFlurType != "sin pelo" && coatOrFlurType != "pelo corto" && coatOrFlurType != "pelo mediano" && coatOrFlurType != "pelo largo")
             {
                 Console.WriteLine($"Escribe 'sin pelo', 'pelo corto', 'pelo mediano' o 'pelo largo' para poder continuar");
-                coatType = Console.ReadLine().Trim().ToLower();
+                coatOrFlurType = Console.ReadLine().Trim().ToLower();
             }
-            return coatType;
+            return coatOrFlurType;
         }
 
         public static DateOnly GetBirthdate() // Validación fecha de nacimiento de la mascota

@@ -43,6 +43,8 @@ namespace filtro_c_sharp.Models
             return (DateTime.Now.Year - Birthdate.Year) * 12 + (DateTime.Now.Month - Birthdate.Month);
         }
 
+        // Para mostrar el BasicReview
+
         public void ShowBasicReview()
         {
             Console.WriteLine($"Descripción del ingreso: {BasicReview()}");
