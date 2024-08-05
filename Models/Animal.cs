@@ -8,12 +8,12 @@ namespace filtro_c_sharp.Models
 {
     public abstract class Animal
     {
-        protected abstract int Id {get;set;}
-        protected abstract string Name {get;set;}
-        protected abstract DateOnly Birthdate {get;set;}
-        protected abstract string Breed {get;set;}
-        protected abstract string Color {get;set;}
-        protected abstract double WeightInKg {get;set;}
+        protected int Id {get;set;}
+        protected string Name {get;set;}
+        protected DateOnly Birthdate {get;set;}
+        protected string Breed {get;set;}
+        protected string Color {get;set;}
+        protected double WeightInKg {get;set;}
 
         public Animal(int id, string name, DateOnly birthdate, string breed, string color, double weightInKg){
             Id = id;
