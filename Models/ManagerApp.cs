@@ -8,14 +8,15 @@ namespace filtro_c_sharp.Models
 {
     public class ManagerApp
     {
-        private static int Id = 0;
-        static Dog CreateDog()
+        private static int Id = 0; // Inicializo el Id para las mascotas
+        
+        // Métodos del diagrama UML
+        public static Dog CreateDog() // Método para crear un perro
         {
             Console.WriteLine("Ingresa el nombre del perro");
             var name = Console.ReadLine();
 
-            Console.WriteLine($"Ingresa la fecha de nacimiento de {name} (año/mes/día)");
-            var birthdate = DateOnly.FromDateTime(Convert.ToDateTime(Console.ReadLine()));
+           var birthdate = GetBirthdate();
 
             Console.WriteLine($"Ingresa la raza de {name}");
             var breed = Console.ReadLine();
@@ -29,7 +30,6 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"¿{name} se encuentra castrado? Ingresa 1 para sí, 0 para no");
             var breedingStatus = Convert.ToBoolean(Convert.ToInt16(Console.ReadLine()));
 
-
             var temperament = GetTemperament();
 
             Console.WriteLine($"Ingresa el número de microchip de {name}");
@@ -38,17 +38,55 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"Ingresa el volumen de ladrido de {name}");
             var barkVolume = Console.ReadLine();
 
-            var coatType = GetCoatType();
+            var coatType = GetCoatOrFlurType();
 
             return new Dog(GeneratorId(), name, birthdate, breed, color, weight, breedingStatus, temperament, microchipNumber, barkVolume, coatType);
         }
 
-        public static int GeneratorId()
+        public static Cat CreateCat() // Método para crear un gato
+        {
+            Console.WriteLine("Ingresa el nombre del gato");
+            var name = Console.ReadLine();
+
+            var birthdate = GetBirthdate();
+
+            Console.WriteLine($"Ingresa la raza de {name}");
+            var breed = Console.ReadLine();
+
+            Console.WriteLine($"Ingresa el color de {name}");
+            var color = Console.ReadLine();
+
+            Console.WriteLine($"Ingresa el peso de {name} en kg");
+            var weight = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine($"¿{name} se encuentra castrado? Ingresa 1 para sí, 0 para no");
+            var breedingStatus = Convert.ToBoolean(Convert.ToInt16(Console.ReadLine()));
+
+            var flurLength = GetCoatOrFlurType();
+
+            return new Cat(GeneratorId(), name, birthdate, breed, color, weight, breedingStatus, flurLength);
+        }
+
+        public static void  ShowHeader(string header){
+            Console.WriteLine($"{header}");
+        }
+
+        public static void  ShowFooter(string footer){
+            Console.WriteLine($"{footer}");
+        }
+
+        public static void  ShowSeparator(){
+            Console.WriteLine("__________________________________________________");
+        }
+
+        // Métodos no especificadas en el diagrama
+ 
+        public static int GeneratorId() // generador ids para las mascotas
         {
             return Id += 1;
         }
 
-        public static string GetTemperament()
+        public static string GetTemperament() // Validación temperamento del perro
 
         {
             Console.WriteLine($"Ingresa el temperamento de la mascota");
@@ -62,7 +100,7 @@ namespace filtro_c_sharp.Models
             return temperament;
         }
 
-        public static string GetCoatType()
+        public static string GetCoatOrFlurType() // Validación pelaje de la mascota
         {
             Console.WriteLine($"Ingresa el pelaje de la mascota");
             var coatType = Console.ReadLine().Trim().ToLower();
@@ -73,6 +111,22 @@ namespace filtro_c_sharp.Models
                 coatType = Console.ReadLine().Trim().ToLower();
             }
             return coatType;
+        }
+
+        public static DateOnly GetBirthdate() // Validación fecha de nacimiento de la mascota
+        {
+            Console.WriteLine($"Ingresa la fecha de nacimiento de la mascota (año/mes/día)");
+
+            var birthdate = DateOnly.FromDateTime(Convert.ToDateTime(Console.ReadLine()));
+
+            while (birthdate > DateOnly.FromDateTime(DateTime.Now))
+            {
+                Console.WriteLine($"Ha ocurrido un error. Ingresa nuevamente la fecha de nacimiento (año/mes/día)");
+
+                birthdate = DateOnly.FromDateTime(Convert.ToDateTime(Console.ReadLine()));
+            }
+
+            return birthdate;
         }
     }
 }

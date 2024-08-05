@@ -8,41 +8,46 @@ namespace filtro_c_sharp.Models
     public class VeterinaryClinic
     {
         public string Name { get; set; }
-        public string Adress { get; set; }
-        public List<Dog> Dogs { get; set; }
-        public List<Cat> Cats { get; set; }
+        public string Address { get; set; }
+        public List<Dog> Dogs { get; set; } = new List<Dog>(); // Lista de perros
+        public List<Cat> Cats { get; set; } = new List<Cat>(); // Lista de gatos
+
+        // Constructor sin parametros
+        public VeterinaryClinic() { }
+
+        // Constructor con parametros
 
         public VeterinaryClinic(string name, string address)
         {
             Name = name;
-            Adress = address;
-            Dogs = new List<Dog>();
-            Cats = new List<Cat>();
+            Address = address;
         }
 
-        public void SaveDog(Dog newDog)
+        // Métodos descritos en el diagrama UML
+
+        public void SaveDog(Dog newDog) // Agregar a perro a la lista
         {
             Dogs.Add(newDog);
-            Console.WriteLine($"El perro ha sido registrado exitosamente");
+            Console.WriteLine($"El perro {newDog.GetName()} ha sido registrado exitosamente");
         }
 
-        public void SaveCat(Cat newCat)
+        public void SaveCat(Cat newCat) // Agregar a gato a la lista
         {
             Cats.Add(newCat);
-            Console.WriteLine($"El perro ha sido registrado exitosamente");
+            Console.WriteLine($"El gato {newCat.GetName()} ha sido registrado exitosamente");
         }
 
-        public void UpdateDog(Dog dog)
+        public void UpdateDog(Dog dog) // Actualizar perro
         {
 
         }
 
-        public void UpdateCat(Cat cat)
+        public void UpdateCat(Cat cat) // Actualizar gato
         {
 
         }
 
-        public void DeleteDog(int id)
+        public void DeleteDog(int id) // Eliminar perro según id
         {
             var founded = Dogs.Find(dog => dog.GetId() == id);
             if (founded != null)
@@ -61,7 +66,7 @@ namespace filtro_c_sharp.Models
             }
         }
 
-        public void DeleteCat(int id)
+        public void DeleteCat(int id) // Eliminar gato según id
         {
             var founded = Cats.Find(cat => cat.GetId() == id);
             if (founded != null)
@@ -80,35 +85,35 @@ namespace filtro_c_sharp.Models
             }
         }
 
-        public void ShowAllPatients()
+        public void ShowAllPatients() // Mostrar todos los pacientes registrados
         {
-            Console.WriteLine("__________________________________________________");
-            Console.WriteLine("Pacientes registrados:");
-            Console.WriteLine("Perros: ");
+            ManagerApp.ShowSeparator();
+            ManagerApp.ShowHeader("Pacientes registrados:");
+            ManagerApp.ShowHeader("Perros: ");
 
             foreach (var dog in Dogs)
             {
                 dog.ShowInformation();
             }
 
-            Console.WriteLine("                                                    ");
+            ManagerApp.ShowSeparator();
 
-            Console.WriteLine("Gatos: ");
+            ManagerApp.ShowHeader("Gatos: ");
 
             foreach (var cat in Cats)
             {
                 cat.ShowInformation();
             }
 
-            Console.WriteLine("__________________________________________________");
+            ManagerApp.ShowSeparator();
 
         }
 
-        public void ShowAnimals(string type)
+        public void ShowAnimals(string type) // Mostrar todos los pacientes de algún tipo
         {
             if (type.ToLower() == "perro")
             {
-                Console.WriteLine("Perros: ");
+                ManagerApp.ShowHeader("Perros: ");
 
                 foreach (var dog in Dogs)
                 {
@@ -117,7 +122,7 @@ namespace filtro_c_sharp.Models
             }
             else if (type.ToLower() == "gato")
             {
-                Console.WriteLine("Gatos: ");
+                ManagerApp.ShowHeader("Gatos: ");
 
                 foreach (var cat in Cats)
                 {
@@ -126,9 +131,9 @@ namespace filtro_c_sharp.Models
             }
         }
 
-        public void ShowPatient(int idPatient)
+        public void ShowPatient(int idPatient) // Mostrar info de un paciente específico con su id
         {
-            Console.WriteLine("Buscando...");
+            ManagerApp.ShowHeader("Buscando...");
             var foundedDog = Dogs.Find(dog => dog.GetId() == idPatient);
             if (foundedDog != null)
             {
