@@ -268,7 +268,7 @@ namespace filtro_c_sharp.Models
         public void DataEG()
         {
             Dogs.Add(new Dog("Milu", new DateOnly(2023, 04, 21), "border collie", "negro", 13.5, false, "normal", "123456", "normal", "pelo largo"));
-            var dog = new Dog("Orión", new DateOnly(2013, 10, 18), "criollo", "beige", 13.5, true, "timido", "987654", "normal", "pelo mediano");
+            var dog = new Dog("Orion", new DateOnly(2013, 10, 18), "criollo", "beige", 13.5, true, "timido", "987654", "normal", "pelo mediano");
 
             Dogs.Add(dog);
 
