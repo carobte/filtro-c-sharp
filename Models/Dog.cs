@@ -28,17 +28,17 @@ namespace filtro_c_sharp.Models
 
         public override void ShowInformation()
         {
-            Console.WriteLine($"Dog: {Name}");
-            Console.WriteLine($"Birthdate: {Birthdate}");
-            Console.WriteLine($"Age: {CalculateAgeInMonths()} months old");
-            Console.WriteLine($"Breed: {Breed}");
+            Console.WriteLine($"Nombre del perro: {Name}");
+            Console.WriteLine($"Fecha de nacimiento: {Birthdate}");
+            Console.WriteLine($"Edad: {CalculateAgeInMonths()} meses");
+            Console.WriteLine($"Raza: {Breed}");
             Console.WriteLine($"Color: {Color}");
-            Console.WriteLine($"Weight: {WeightInKg} kg");
-            Console.WriteLine($"Breeding Status: {BreedingStatus}");
-            Console.WriteLine($"Temperament: {Temperament}");
-            Console.WriteLine($"MicrochipNumber: {MicrochipNumber}");
-            Console.WriteLine($"Bark Volume: {BarkVolume}");
-            Console.WriteLine($"Coat Type: {CoatType}");
+            Console.WriteLine($"Peso: {WeightInKg} kg");
+            Console.WriteLine($"Castrado: {BreedingStatus}");
+            Console.WriteLine($"Temperamento: {Temperament}");
+            Console.WriteLine($"Número de microchip: {MicrochipNumber}");
+            Console.WriteLine($"Volumen de ladrido: {BarkVolume}");
+            Console.WriteLine($"Pelaje: {CoatType}");
         }
 
         // Funciones descritas desde el UML

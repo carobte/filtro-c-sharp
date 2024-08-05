@@ -22,14 +22,14 @@ namespace filtro_c_sharp.Models
 
         public override void ShowInformation()
         {
-            Console.WriteLine($"Cat: {Name}");
-            Console.WriteLine($"Birthdate: {Birthdate}");
-            Console.WriteLine($"Age: {CalculateAgeInMonths()} months old");
-            Console.WriteLine($"Breed: {Breed}");
+            Console.WriteLine($"Nombre del gato: {Name}");
+            Console.WriteLine($"Fecha de nacimiento: {Birthdate}");
+            Console.WriteLine($"Edad: {CalculateAgeInMonths()} meses");
+            Console.WriteLine($"Raza: {Breed}");
             Console.WriteLine($"Color: {Color}");
-            Console.WriteLine($"Weight: {WeightInKg} kg");
-            Console.WriteLine($"Breeding Status: {BreedingStatus}");
-            Console.WriteLine($"Fur Length: {FurLength}");
+            Console.WriteLine($"Peso: {WeightInKg} kg");
+            Console.WriteLine($"Castrado: {BreedingStatus}");
+            Console.WriteLine($"Longitud pelaje: {FurLength}");
         }
 
         // Funciones descritas desde el UML
