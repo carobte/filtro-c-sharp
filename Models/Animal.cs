@@ -27,7 +27,7 @@ namespace filtro_c_sharp.Models
             WeightInKg = weightInKg;
         }
 
-        // Funciones descritas en el UML:
+        // Métodos descritos en el UML:
         public abstract void ShowInformation();
 
 

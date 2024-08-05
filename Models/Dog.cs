@@ -24,34 +24,58 @@ namespace filtro_c_sharp.Models
             CoatType = coatType;
         }
 
-        // Función de la clase padre ShowInformation
+        // Método de la clase padre ShowInformation
 
         public override void ShowInformation()
         {
+            var status = "";
+            if (BreedingStatus == true)
+            {
+                status = "Sí";
+            }
+            else
+            {
+                status = "No";
+            }
+
             Console.WriteLine($"Nombre del perro: {Name}");
             Console.WriteLine($"Fecha de nacimiento: {Birthdate}");
             Console.WriteLine($"Edad: {CalculateAgeInMonths()} meses");
             Console.WriteLine($"Raza: {Breed}");
             Console.WriteLine($"Color: {Color}");
             Console.WriteLine($"Peso: {WeightInKg} kg");
-            Console.WriteLine($"Castrado: {BreedingStatus}");
+            Console.WriteLine($"Castrado: {status}");
             Console.WriteLine($"Temperamento: {Temperament}");
             Console.WriteLine($"Número de microchip: {MicrochipNumber}");
             Console.WriteLine($"Volumen de ladrido: {BarkVolume}");
             Console.WriteLine($"Pelaje: {CoatType}");
         }
 
-        // Funciones descritas desde el UML
+        // Métodos descritas desde el UML
 
         public void CastrateAnimal()
         {
-            Console.WriteLine("");
+            if (BreedingStatus == true)
+            {
+                Console.WriteLine($"{Name} ya se encuentra castrado");
+            }
+            else
+            {
+                BreedingStatus = true;
+                Console.WriteLine($"{Name} fue castrado exitosamente");
+            }
         }
 
         public void Hairdress()
         {
-            Console.WriteLine("");
+            if(CoatType != "sin pelo" && CoatType != "pelo corto"){
+                Console.WriteLine($"{Name} ha sido motilado");
+            } else {
+                Console.WriteLine($"{Name} no puede ser motilado");
+            }
         }
+
+        // Métodos no especificadas en el diagrama
 
         public int GetId()
         {

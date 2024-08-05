@@ -18,7 +18,7 @@ namespace filtro_c_sharp.Models
             FurLength = furLength;
         }
 
-        // Función de la clase padre ShowInformation
+        // Método de la clase padre ShowInformation
 
         public override void ShowInformation()
         {
@@ -32,16 +32,30 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"Pelaje: {FurLength}");
         }
 
-        // Funciones descritas desde el UML
+        // Métodos descritas desde el UML
         public void CastrateAnimal()
         {
-            Console.WriteLine("");
+            if (BreedingStatus == true)
+            {
+                Console.WriteLine($"{Name} ya se encuentra castrado");
+            }
+            else
+            {
+                BreedingStatus = true;
+                Console.WriteLine($"{Name} fue castrado exitosamente");
+            }
         }
 
         public void Hairdress()
         {
-            Console.WriteLine("");
+            if(FurLength != "sin pelo" && FurLength != "pelo corto"){
+                Console.WriteLine($"{Name} ha sido motilado");
+            } else {
+                Console.WriteLine($"{Name} no puede ser motilado");
+            }
         }
+
+        // Métodos no especificadas en el diagrama
 
         public int GetId()
         {
