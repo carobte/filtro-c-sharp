@@ -87,7 +87,7 @@ namespace filtro_c_sharp.Models
         {
             Console.WriteLine($"Ingresa el temperamento de la mascota");
             var temperament = Console.ReadLine().Trim().ToLower();
-            while (temperament != "timido" || temperament != "normal" || temperament != "agresivo")
+            while (temperament != "timido" && temperament != "normal" && temperament != "agresivo")
             {
                 Console.WriteLine($"Escribe timido, normal o agresivo para poder continuar");
                 temperament = Console.ReadLine().Trim().ToLower();
@@ -101,7 +101,7 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"Ingresa el pelaje de la mascota");
             var coatType = Console.ReadLine().Trim().ToLower();
 
-            while (coatType != "sin pelo" || coatType != "pelo corto" || coatType != "pelo mediano" || coatType != "pelo largo")
+            while (coatType != "sin pelo" && coatType != "pelo corto" && coatType != "pelo mediano" && coatType != "pelo largo")
             {
                 Console.WriteLine($"Escribe 'sin pelo', 'pelo corto', 'pelo mediano' o 'pelo largo' para poder continuar");
                 coatType = Console.ReadLine().Trim().ToLower();
