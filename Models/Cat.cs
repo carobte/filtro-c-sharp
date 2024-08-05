@@ -29,7 +29,7 @@ namespace filtro_c_sharp.Models
             Console.WriteLine($"Color: {Color}");
             Console.WriteLine($"Peso: {WeightInKg} kg");
             Console.WriteLine($"Castrado: {BreedingStatus}");
-            Console.WriteLine($"Longitud pelaje: {FurLength}");
+            Console.WriteLine($"Pelaje: {FurLength}");
         }
 
         // Funciones descritas desde el UML

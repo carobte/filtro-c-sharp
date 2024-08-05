@@ -33,7 +33,7 @@ namespace filtro_c_sharp.Models
 
         protected void BasicReview()
         {
-
+            Console.WriteLine("La mascota se encuentra estable");
         }
 
         protected int CalculateAgeInMonths()
